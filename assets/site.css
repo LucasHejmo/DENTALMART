@@ -217,7 +217,8 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0}
 .fnav{display:flex;gap:16px}
 .fnav a{color:var(--muted);text-decoration:none}
 .fnav a:hover{color:var(--teal)}
-.wilk{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--ink)}
+.wilk{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--ink);text-decoration:none}
+.wilk:hover{color:var(--teal)}
 .wilk .s{width:9px;height:9px;border-radius:2px;background:var(--teal)}
 
 

@@ -182,7 +182,7 @@ const FACETS = [
   { key: 'brand', label: 'Brand' }
 ];
 const sel = { cat: new Set(), type: new Set(), brand: new Set() };
-let term = '', visible = PAGE, sortMode = 'az';
+let term = '', visible = PAGE, sortMode = 'featured';
 
 function facetValues(key){
   const f = FACETS.find(x => x.key === key) || {};
@@ -274,6 +274,7 @@ function renderActive(){
 function sortList(list){
   const az = (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true });
   const by = {
+    featured: (a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || az(a, b),
     az,
     za: (a, b) => az(b, a),
     cat: (a, b) => (a.cat || '').localeCompare(b.cat || '') || az(a, b),
