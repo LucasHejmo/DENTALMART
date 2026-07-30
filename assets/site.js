@@ -182,7 +182,7 @@ const FACETS = [
   { key: 'brand', label: 'Brand' }
 ];
 const sel = { cat: new Set(), type: new Set(), brand: new Set() };
-let term = '', visible = PAGE;
+let term = '', visible = PAGE, sortMode = 'az';
 
 function facetValues(key){
   const f = FACETS.find(x => x.key === key) || {};
@@ -271,9 +271,19 @@ function renderActive(){
   const cl = el('clearFilters'); if(cl) cl.onclick = () => { FACETS.forEach(f => sel[f.key].clear()); visible = PAGE; refresh(); };
 }
 
+function sortList(list){
+  const az = (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base', numeric: true });
+  const by = {
+    az,
+    za: (a, b) => az(b, a),
+    cat: (a, b) => (a.cat || '').localeCompare(b.cat || '') || az(a, b),
+    brand: (a, b) => (a.brand || '\uffff').localeCompare(b.brand || '\uffff') || az(a, b)
+  };
+  return list.slice().sort(by[sortMode] || az);
+}
 function renderCatalogue(){
   const grid = el('grid'); if(!grid || !PRODUCTS.length) return;
-  const list = PRODUCTS.filter(match), shown = list.slice(0, visible);
+  const list = sortList(PRODUCTS.filter(match)), shown = list.slice(0, visible);
   const c = el('count'); if(c) c.textContent = list.length ? `Showing ${shown.length} of ${list.length}` : '';
   if(!list.length){
     grid.innerHTML = '<div class="empty">No products match your filters. Try clearing one.</div>';
@@ -289,6 +299,7 @@ function initCatalogue(){
   const s = el('search');
   if(s) s.addEventListener('input', e => { term = e.target.value.trim().toLowerCase(); visible = PAGE; refresh(); });
   const lm = el('loadmore'); if(lm) lm.onclick = () => { visible += PAGE; renderCatalogue(); };
+  const sb = el('sortby'); if(sb) sb.addEventListener('change', e => { sortMode = e.target.value; visible = PAGE; renderCatalogue(); });
   const ft = el('filterToggle'); if(ft) ft.onclick = () => el('filters').classList.toggle('open');
   const params = new URLSearchParams(location.search);
   for(const f of FACETS){ const v = params.get(f.key); if(v && facetValues(f.key).includes(v)) sel[f.key].add(v); }
