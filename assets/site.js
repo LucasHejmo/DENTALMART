@@ -38,6 +38,24 @@ const fallbackIcon = cat => ICONS[cat] || ICONS._default;
 const el = id => document.getElementById(id);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+/* swap a broken/missing product image for the branded placeholder */
+function dmNoImg(img){
+  if(!img || img.dataset.noimg) return;
+  img.dataset.noimg = '1';
+  const d = document.createElement('div');
+  d.className = 'noimg';
+  d.innerHTML = '<span class="mk"></span><span class="lbl">Photo coming soon</span>';
+  if(img.parentNode) img.parentNode.replaceChild(d, img);
+}
+window.dmNoImg = dmNoImg;
+/* catch images that already 404'd before this script ran */
+function dmScanImages(root){
+  (root || document).querySelectorAll('.pic img, .pdp-media img').forEach(img => {
+    if(img.complete && img.naturalWidth === 0) dmNoImg(img);
+    else img.addEventListener('error', () => dmNoImg(img), { once: true });
+  });
+}
+
 /* ---- quote list: { SKU: {n: name, q: qty} } ---- */
 let mem = {};
 function loadCart(){ try { return JSON.parse(localStorage.getItem('dm_cart')) || {}; } catch(e){ return mem; } }
@@ -137,7 +155,7 @@ function hideForm(){ el('qform').classList.add('hidden'); el('dfoot').style.disp
 function card(p){
   const added = cart[p.sku] ? ' added' : '';
   const pic = p.image
-    ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">`
+    ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="dmNoImg(this)">`
     : `<div class="noimg"><span class="mk"></span><span class="lbl">Photo coming soon</span></div>`;
   return `<article class="pcard">
     <a class="plink" href="${esc(p.url)}">
@@ -342,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateBadge();
   renderDrawer();
   loadProducts();
+  dmScanImages();
   const cf = el('c_send'); if(cf) cf.onclick = sendContact;
   document.addEventListener('click', e => {
     const b = e.target.closest('.add, .madd');
