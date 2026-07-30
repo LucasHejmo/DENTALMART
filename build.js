@@ -19,7 +19,7 @@ const path = require('path');
 const SITE_URL = (process.env.SITE_URL || 'https://dentalmart.ca').replace(/\/$/, '');
 const ROOT = __dirname;
 const DIST = path.join(ROOT, 'dist');
-const COPY = ['index.html', 'about.html', 'contact.html', 'products.html', 'assets', 'images', 'favicon.ico', '_headers', '_redirects'];
+const COPY = ['index.html', 'about.html', 'contact.html', 'products.html', 'faq.html', 'assets', 'images', 'favicon.ico', '_headers', '_redirects'];
 
 const CAT_ORDER = ['Consumables', 'Instruments', 'Materials', 'Equipment'];
 
@@ -77,6 +77,7 @@ const header = active => `
       <a href="/"${active === 'home' ? ' class="on"' : ''}>Home</a>
       <a href="/products.html"${active === 'products' ? ' class="on"' : ''}>Products</a>
       <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
       <a href="/contact.html">Contact</a>
     </nav>
     <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
@@ -93,8 +94,8 @@ const footer = `
 <footer>
   <div class="wrap fin">
     <span>&copy; ${new Date().getFullYear()} DentalMart &middot; Mississauga, ON</span>
-    <nav class="fnav"><a href="/">Home</a><a href="/products.html">Products</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
-    <span class="wilk"><span class="s"></span>A Wilk Company</span>
+    <nav class="fnav"><a href="/">Home</a><a href="/products.html">Products</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a></nav>
+    <a class="wilk" href="https://wilksolutions.ca" target="_blank" rel="noopener"><span class="s"></span>A Wilk Company</a>
   </div>
 </footer>`;
 
@@ -333,6 +334,7 @@ function build() {
     { loc: '/', pri: '1.0' },
     { loc: '/products.html', pri: '0.9' },
     { loc: '/about.html', pri: '0.5' },
+    { loc: '/faq.html', pri: '0.6' },
     { loc: '/contact.html', pri: '0.5' },
     ...cats.map(c => ({ loc: `/category/${slugify(c)}.html`, pri: '0.8' })),
     ...products.map(p => ({ loc: p.url, pri: '0.7' }))
