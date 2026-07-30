@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products — DentalMart | Browse & Request a Quote</title>
+<meta name="description" content="Browse DentalMart's full catalogue of dental consumables, instruments, materials, and equipment. Add items to your quote list and request pricing in one step.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap hin">
+    <a href="/index.html" class="logo"><span class="m"></span><span>DentalMart</span></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="/index.html">Home</a>
+      <a href="/products.html" class="on">Products</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+      <svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="quote-btn" id="quoteBtn">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg>
+      <span class="lbl">Quote list</span> <span class="badge" id="badge">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="pagebanner">
+  <div class="bgimg" style="background-image:url('/images/banner-products.jpg')"></div>
+  <div class="wrap inner">
+    <span class="beyebrow">Dental supplies &middot; shipped Canada-wide</span>
+    <h1>Everything for the operatory, in one catalogue</h1>
+    <p class="sub">Consumables, instruments, materials, and equipment. Add what you need to your quote list and we'll come back with pricing, bulk discounts, and availability.</p>
+    <div class="searchbar">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="Search supplies, instruments, equipment…" autocomplete="off">
+    </div>
+    <p class="catlinks">Browse by category: <!--CATEGORY_LINKS--></p>
+  </div>
+</section>
+
+<section class="wrap catintro">
+  <h2>Full catalogue</h2>
+  <p>Everything we stock for dental, veterinary, and medical clinics — consumables, instruments, materials, and operatory equipment. Filter by category, type, or brand, then build a quote list and we'll send pricing.</p>
+</section>
+
+<div class="wrap catlayout">
+  <button class="filtertoggle" id="filterToggle">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+    Filters <span class="fcount"></span>
+  </button>
+  <aside class="filters" id="filters" aria-label="Product filters"></aside>
+  <div class="catmain">
+    <div class="toolbar">
+      <div class="activefilters" id="activeFilters"></div>
+      <div class="count" id="count"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="loadwrap"><button class="loadmore hide" id="loadmore">Load more products</button></div>
+  </div>
+</div>
+
+<footer style="margin-top:50px">
+  <div class="wrap fin">
+    <span>© 2026 DentalMart · Mississauga, ON</span>
+    <nav class="fnav"><a href="/index.html">Home</a><a href="/products.html">Products</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+    <span class="wilk"><span class="s"></span>A Wilk Company</span>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

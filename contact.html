@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — DentalMart | Dental Supplies, Mississauga</title>
+<meta name="description" content="Get in touch with DentalMart for pricing, product questions, or account setup. Based in Mississauga, ON, serving clinics across Canada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap hin">
+    <a href="/index.html" class="logo"><span class="m"></span><span>DentalMart</span></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="/index.html">Home</a>
+      <a href="/products.html">Products</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html" class="on">Contact</a>
+    </nav>
+    <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+      <svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="quote-btn" id="quoteBtn">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 3H2"/></svg>
+      <span class="lbl">Quote list</span> <span class="badge" id="badge">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="wrap page">
+  <h1>Contact us</h1>
+  <p class="lead">Questions about a product, pricing, or setting up an account? Send us a note and we'll get back to you within one business day.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="cline"><span><b>Email</b><br>hello@dentalmart.ca</span></div>
+      <div class="cline"><span><b>Phone</b><br>905·555·0140</span></div>
+      <div class="cline"><span><b>Location</b><br>Mississauga, ON · Serving clinics across Canada</span></div>
+      <div class="cline"><span><b>Hours</b><br>Mon–Fri, 8:30am–5:00pm ET</span></div>
+    </div>
+
+    <div class="cform">
+      <div class="result" id="c_result"></div>
+      <div class="frow">
+        <div class="field"><label>Name</label><input id="c_name" required></div>
+        <div class="field"><label>Clinic</label><input id="c_clinic"></div>
+      </div>
+      <div class="frow">
+        <div class="field"><label>Email</label><input id="c_email" type="email" required></div>
+        <div class="field"><label>Phone</label><input id="c_phone" type="tel"></div>
+      </div>
+      <div class="field"><label>Message</label><textarea id="c_message" rows="4" placeholder="How can we help?"></textarea></div>
+      <button class="cta" id="c_send">Send message</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap fin">
+    <span>© 2026 DentalMart · Mississauga, ON</span>
+    <nav class="fnav"><a href="/index.html">Home</a><a href="/products.html">Products</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></nav>
+    <span class="wilk"><span class="s"></span>A Wilk Company</span>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
