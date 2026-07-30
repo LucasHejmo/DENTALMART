@@ -7,7 +7,7 @@
 
    SETUP: paste your Web3Forms access key on the next line.
    ============================================================ */
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+const WEB3FORMS_ACCESS_KEY = "5e89124e-d031-46ba-b03c-55c77270072f";
 
 /* Categories are derived from products.json at load time, so a new value in the
    CSV creates a new filter chip automatically. This list only sets the order
