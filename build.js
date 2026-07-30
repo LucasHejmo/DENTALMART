@@ -129,7 +129,7 @@ const catIcon = c => CAT_ICONS[c] || CAT_ICONS._default;
 
 const miniCard = p => `<article class="pcard">
   <a class="plink" href="${p.url}">
-    <div class="pic">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">` : `<div class="noimg"><span class="mk"></span><span class="lbl">Photo coming soon</span></div>`}<span class="view">View details</span></div>
+    <div class="pic">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="dmNoImg(this)">` : `<div class="noimg"><span class="mk"></span><span class="lbl">Photo coming soon</span></div>`}<span class="view">View details</span></div>
     <div class="pbody-top"><div class="pcat">${esc(p.cat)}${p.brand ? ` &middot; ${esc(p.brand)}` : ''}</div><h3 class="pname">${esc(p.name)}</h3><div class="psku">SKU ${esc(p.sku)}</div></div>
   </a>
   <div class="pbody-bot"><button class="add" data-sku="${esc(p.sku)}" data-name="${esc(p.name)}">Add to quote</button></div>
@@ -177,7 +177,7 @@ ${header('products')}
   </nav>
 
   <div class="pdp">
-    <div class="pdp-media">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}">` : `<div class="noimg"><span class="mk"></span><span class="lbl">Photo coming soon</span></div>`}</div>
+    <div class="pdp-media">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" onerror="dmNoImg(this)">` : `<div class="noimg"><span class="mk"></span><span class="lbl">Photo coming soon</span></div>`}</div>
     <div class="pdp-info">
       <div class="pcat">${esc(p.cat)}</div>
       <h1>${esc(p.name)}</h1>
