@@ -59,7 +59,17 @@
   <div class="catmain">
     <div class="toolbar">
       <div class="activefilters" id="activeFilters"></div>
-      <div class="count" id="count"></div>
+      <div class="toolbar-right">
+        <label class="sortwrap">Sort
+          <select id="sortby">
+            <option value="az">Name: A–Z</option>
+            <option value="za">Name: Z–A</option>
+            <option value="cat">Category</option>
+            <option value="brand">Brand</option>
+          </select>
+        </label>
+        <div class="count" id="count"></div>
+      </div>
     </div>
     <div class="grid" id="grid"></div>
     <div class="loadwrap"><button class="loadmore hide" id="loadmore">Load more products</button></div>
