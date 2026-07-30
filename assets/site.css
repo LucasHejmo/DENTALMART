@@ -368,7 +368,7 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0}
 
 /* ---------- home: why buy from us strip ---------- */
 .whybuy{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.whybuy-in{padding:clamp(38px,5vw,54px) 0}
+.whybuy-in{padding-top:clamp(38px,5vw,54px);padding-bottom:clamp(38px,5vw,54px)}
 .whybuy .head{margin-bottom:26px}
 .whygrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:820px){.whygrid{grid-template-columns:repeat(2,1fr)}}
@@ -381,7 +381,7 @@ footer{border-top:1px solid var(--line);background:#fff;padding:30px 0}
 
 /* ---------- FAQ page ---------- */
 .faq-hero{border-bottom:1px solid var(--line);background:linear-gradient(160deg,#fff,var(--wash))}
-.faq-hero-in{padding:clamp(36px,5vw,58px) 0 clamp(30px,4vw,44px)}
+.faq-hero-in{padding-top:clamp(36px,5vw,58px);padding-bottom:clamp(30px,4vw,44px)}
 .faq-hero h1{font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.06;margin-bottom:12px}
 .faq-hero p{font-size:17px;color:var(--muted);max-width:60ch}
 .faq-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
